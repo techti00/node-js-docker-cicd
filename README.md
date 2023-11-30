@@ -44,7 +44,9 @@ Just to verify if system has git installed or not, please run below command in t
 ```bash
 git — version
 ```
+git clone https://github.com/Aseemakram19/node-js-docker-cicd.git
 
+cd node-js-docker-cicd
 
 1.	Run the following command to install the required dependencies (Express):
 npm install express 
