@@ -1,17 +1,15 @@
 # Navigate to your project directory
-cd /root/project/node-js-docker-cicd
 
+cd /var/project/node-js-docker-cicd
 
 # Navigate to your project jenkins/workspace/ directory
 cd /var/lib/jenkins/workspace/nodeapp
 
 # Copy files using rsync
-cp * -r /root/project/node-js-docker-cicd
+cp * -r /var/project/node-js-docker-cicd
 
 # Navigate to your project directory
-cd /root/project/node-js-docker-cicd
-
-
+cd /var/project/node-js-docker-cicd
 
 # Find the process ID (PID) using port 3000
 PID=$(lsof -t -i:3000)
@@ -22,7 +20,7 @@ if [ -n "$PID" ]; then
 fi
 
 # Navigate to your project directory
-cd /root/project/node-js-docker-cicd
+cd /var/project/node-js-docker-cicd
 
 # stop pm2 process
 pm2 stop ecosystem.config.js
@@ -31,10 +29,7 @@ pm2 stop ecosystem.config.js
 npm install express
 
 # Run the deploy script
-nohup node index.js &
-
-# start pm2 process
-pm2 restart ecosystem.config.js
+sudo npm run dev
 
 # Find the process ID (PID) using port 3000
 PID=$(lsof -t -i:3000)
